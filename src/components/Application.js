@@ -51,8 +51,13 @@ import "components/Application.scss";
   ];
 
 export default function Application(props) {
-  const [day, setDay] = useState("Monday")
-  const [days, setDays] = useState([]);
+  const [state, setState] = useState({
+    day: "Monday",
+    days: [],
+    // you may put the line below, but will have to remove/comment hardcoded appointments variable
+    appointments: {}
+  });
+  
 
   useEffect(() => {
     const daysURL = "/api/days"
