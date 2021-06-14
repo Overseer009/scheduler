@@ -6,7 +6,7 @@ export default function InterviewerList (props) {
   
   const { interviewers, value, onChange } = props
 
-  const parsedInterviewers = interviewers.map(person => {
+  const parsedInterviewers = interviewers && interviewers.map(person => {
     return (<InterviewerListItem key={person.id}
       name={person.name}
       avatar={person.avatar}
