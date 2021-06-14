@@ -7,8 +7,6 @@ import "components/Application.scss";
 
 export default function Application(props) {
 
-  console.log("application:", props);
-
   const {
     state,
     setDay,

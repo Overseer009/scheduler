@@ -52,20 +52,31 @@ export default function useApplicationData () {
       ...state.appointments,
       [id]: appointment
     };
-    return axios.delete(`/api/appointments/${id}`).then(() => setState({ ...state, appointments }));
+    return axios.delete(`/api/appointments/${id}`).then(() => {
+      const coolState = { ...state, appointments }
+      const evenCoolerState = remainingSpots(coolState, coolState.day);
+      console.log("evenCoolerState:", coolState);
+      setState(evenCoolerState);
+
+    });
   }
 
   const remainingSpots = (state, day) => {
+    console.log("before ---->", state);
     const dayOfRemainder = day || state.day;
     const dayObj = state.days.find(day => day.name === dayOfRemainder);
+    console.log("day object ---->", dayObj);
     const IdList = dayObj.appointments;
     const spots = IdList.filter(apptId => !state.appointments[apptId].interview).length;
     
-    const newDay = {...dayOfRemainder, spots};
+    const newDay = { ...dayObj, spots};
     const newDays = [...state.days];
     const dayObjIndex = state.days.findIndex(day => day.name === dayOfRemainder);
     newDays[dayObjIndex] = newDay;
-
+    console.log("new day ----->", newDay);
+    console.log("day of remainder--->", dayOfRemainder);
+    console.log("new days ---->", newDays);
+    console.log("spots ---->", spots);
     return {...state, days: newDays};
   }
 
