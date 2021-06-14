@@ -5,7 +5,9 @@ import InterviewerList from "../InterviewerList"
 export default function Form (props) {
   const {onSave, onCancel, interviewers} = props
 
-  const [name, setName] = useState(props.name || "")
+  console.log("Editing --->", props.onEdit);
+
+  const [name, setName] = useState(props.student || "")
   const [interviewer, setInterviewer] = useState(props.interviewer || null)
   
   const cancel = () => {
