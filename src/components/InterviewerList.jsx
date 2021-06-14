@@ -6,8 +6,6 @@ export default function InterviewerList (props) {
   
   const { interviewers, value, onChange } = props
 
-  console.log("inside intList--->", value);
-
   const parsedInterviewers = interviewers && interviewers.map(person => {
     return (<InterviewerListItem key={person.id}
       name={person.name}
