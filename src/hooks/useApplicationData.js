@@ -55,7 +55,6 @@ export default function useApplicationData () {
     return axios.delete(`/api/appointments/${id}`).then(() => {
       const coolState = { ...state, appointments }
       const evenCoolerState = remainingSpots(coolState, coolState.day);
-      console.log("evenCoolerState:", coolState);
       setState(evenCoolerState);
 
     });
