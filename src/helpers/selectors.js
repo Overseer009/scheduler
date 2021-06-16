@@ -1,4 +1,4 @@
-
+//Gets the appointments for a specific day
 export function getAppointmentsForDay(state, day) {
   let result = [];
   const filteredApps = state.days.map(d => {
@@ -13,12 +13,13 @@ export function getAppointmentsForDay(state, day) {
     if(filteredApps.includes(app.id)) {
       result.push(app);
     }
-    return result
+    return result;
     });
   }
   return result;
 }
 
+//builds an object with the interview's details  
 export function getInterview(state, interview) {
   let interviewObj = {};
   if(interview) {
@@ -27,7 +28,7 @@ export function getInterview(state, interview) {
         interviewObj.student = interview.student;
         interviewObj.interviewer = int;
       }
-      return interviewObj
+      return interviewObj;
     });
     return interviewObj;
   } else {
@@ -35,6 +36,7 @@ export function getInterview(state, interview) {
   }
 };
 
+//Gets the interviewers for a specific day
 export function getInterviewersForDay (state, day) {
   let result = [];
   const filteredInts = state.days.map(d => {
@@ -49,8 +51,8 @@ export function getInterviewersForDay (state, day) {
     if(filteredInts.includes(app.id)) {
       result.push(app);
     }
-    return result
+    return result;
     });
   }
   return result;
-}
+};

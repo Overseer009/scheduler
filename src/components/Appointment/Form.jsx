@@ -1,33 +1,39 @@
-import React, { useState } from "react" 
-import Button from "../Button"
-import InterviewerList from "../InterviewerList"
+import React, { useState } from "react";
+import Button from "../Button";
+import InterviewerList from "../InterviewerList";
 
 export default function Form (props) {
-  const {onSave, onCancel, interviewers} = props
+  const {onSave, onCancel, interviewers} = props;
 
   const [error, setError] = useState("");
-  const [name, setName] = useState(props.student || "")
-  const [interviewer, setInterviewer] = useState(props.interviewer || null)
+  const [name, setName] = useState(props.student || "");
+  const [interviewer, setInterviewer] = useState(props.interviewer || null);
   
+  //Used on cancel & reset, if fields are filled, but user decides to cancel, it clears said fields
   const cancel = () => {
-    reset()
-    onCancel()
-  }
+    reset();
+    onCancel();
+  };
 
   const reset = () => {
-    setName("")
-    setInterviewer(null)
-  }
+    setName("");
+    setInterviewer(null);
+  };
 
+  // Used on save, if either of the fields are empty, returns Error
   function validate() {
     if (name === "") {
       setError("Student name cannot be blank");
       return;
     }
+    if (!interviewer) {
+      setError("Please select an Interviewer");
+      return;
+    }
   
     setError("");
     onSave(name, interviewer);
-  }
+  };
 
   return (
     <main className="appointment__card appointment__card--create">
@@ -53,6 +59,5 @@ export default function Form (props) {
         </section>
       </section>
     </main>    
-  )
-
-}
+  );
+};

@@ -1,5 +1,5 @@
 import React from "react";
-import "components/DayListItem.scss"
+import "components/DayListItem.scss";
 import classNames from "classnames";
 
 export default function DayListItem(props) {
@@ -15,14 +15,15 @@ export default function DayListItem(props) {
       <h3 className="text--light">{formatSpots(props.spots)}</h3>
     </li>
   );
-}
+};
 
+//Returns the amount of spots remaining
 const formatSpots = (num) => {
   if (!num) {
-    return "no spots remaining"
+    return "no spots remaining";
   } else if (num === 1) {
-    return "1 spot remaining"
+    return "1 spot remaining";
   } else if (num > 1) {
-    return `${num} spots remaining`
+    return `${num} spots remaining`;
   }
-}
+};
