@@ -12,6 +12,7 @@ export default function useApplicationData () {
 
   const setDay = day => setState({ ...state, day });
 
+  //axios API call
   useEffect(() => {
     const daysURL = "/api/days"
     const appointmentURL = "/api/appointments"
@@ -25,6 +26,7 @@ export default function useApplicationData () {
     })
   }, [])
   
+  //Saves interview in schedular
   function bookInterview(id, interview) {
     const appointment = {
       ...state.appointments[id],
@@ -43,6 +45,7 @@ export default function useApplicationData () {
     })
   }
 
+  //Delete interview in schedular
   function cancelInterview(id) {
     const appointment = {
       ...state.appointments[id],
@@ -60,6 +63,7 @@ export default function useApplicationData () {
     });
   }
 
+  //changes the spots remaining without reloading the page
   const remainingSpots = (state, day) => {
     const dayOfRemainder = day || state.day;
     const dayObj = state.days.find(day => day.name === dayOfRemainder);

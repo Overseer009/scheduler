@@ -55,34 +55,34 @@ export default function Appointment(props) {
 
       {mode === EMPTY && <Empty 
         onAdd={() => transition(CREATE)} 
-      />};
+      />}
 
       {mode === SHOW && <Show
         student={interview && interview.student}
         interviewer={interview && interview.interviewer}
         onDelete={() => transition(CONFIRM)}
         onEdit={() => transition(EDIT)}
-      />};
+      />}
 
       {mode === SAVING && <Status 
         message={"Saving"}
-      />};
+      />}
 
       {mode === CREATE && <Form
         interviewers={props.interviewers}
         onSave={save}
         onCancel={back}
-      />};
+      />}
 
       {mode === DELETE && <Status 
         message={"Deleting"}
-      />};
+      />}
 
       {mode === CONFIRM && <Confirm
         message={"Are you sure you would like to delete?"}
         onConfirm={() => deleteInt(id)}
         onCancel={back}
-      />};
+      />}
 
       {mode === EDIT && <Form
         student={interview.student}
@@ -90,18 +90,18 @@ export default function Appointment(props) {
         interviewers={props.interviewers}
         onSave={save}
         onCancel={back}
-      />};
+      />}
 
       {mode === ERR_SAVE && <Error 
         message={"Could not SAVE the appointment, please try again."}
         onClose={back}
-      />};
+      />}
 
       {mode === ERR_DELETE && <Error 
         message={"Could not DELETE the appointment, please try again."}
         onClose={back}
-      />};
+      />}
 
     </article>
-  );
+  )
 };

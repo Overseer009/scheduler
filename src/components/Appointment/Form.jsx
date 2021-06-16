@@ -59,5 +59,5 @@ export default function Form (props) {
         </section>
       </section>
     </main>    
-  );
+  )
 };
