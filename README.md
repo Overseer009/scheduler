@@ -6,26 +6,20 @@
 
 ## Screenshots
 
-
-
+![Empty Appointment](https://github.com/Overseer009/scheduler/blob/master/docs/Empty%20Appointment.png)
+![Creating an Appointment](https://github.com/Overseer009/scheduler/blob/master/docs/Creating%20an%20Appointment.png)
+![Booked Appointment](https://github.com/Overseer009/scheduler/blob/master/docs/Booked%20Appointment.png)
+![Deleting an Appointment](https://github.com/Overseer009/scheduler/blob/master/docs/Deleting%20Appointment.png)
 
 ## Setup
 
-"devDependencies":
-  "@babel/core",
-  "@storybook/addon-actions",
-  "@storybook/addon-backgrounds",
-  "@storybook/addon-links",
-  "@storybook/addons",
-  "@storybook/react",
-  "@testing-library/jest-dom",
-  "@testing-library/react",
-  "@testing-library/react-hooks",
-  "babel-loader",
-  "cypress",
-  "node-sass",
-  "prop-types",
-  "react-test-renderer"
+"dependencies":
+  "axios",
+  "classnames",
+  "normalize.css",
+  "react",
+  "react-dom",
+  "react-scripts"
   
 
 Install dependencies with `npm install`.
